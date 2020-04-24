@@ -1,0 +1,73 @@
+// tech-slide
+.tech-slide {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 160px;
+  width: 240px;
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding-left: 16px;
+
+  @media screen and (max-width: $lg) and (min-width: $sm) {
+    width: 224px;
+  }
+
+  // tech-slide:hover  tech-slide__text-link,  tech-slide:hover  tech-slide__btn-box
+  &:hover &__text-link,
+  &:hover &__btn-box {
+    opacity: 0.5;
+  }
+
+  // tech-slide__text-link
+  &__text-link {
+    text-decoration: none;
+  }
+
+  // tech-slide__text
+  &__text {
+    font-family: TT Lakes;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    font-weight: 500;
+    color: $font-text;
+  }
+
+  // tech-slide__item-box
+  &__btn-box {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 0;
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
+
+  // arrow-link
+  &__btn-link {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    border: 2px solid $washed-rose;
+    box-sizing: border-box;
+    border-radius: 20px;
+    font: inherit;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  // arrow-link::before
+  &__btn-link::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    left: 12px;
+    top: 12px;
+    border-top: 3px solid $washed-rose;
+    border-right: 3px solid $washed-rose;
+    transform: rotate(45deg);
+  }
+}

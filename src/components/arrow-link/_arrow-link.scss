@@ -1,0 +1,25 @@
+// arrow-link
+.arrow-link {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  border: 2px solid $washed-rose;
+  box-sizing: border-box;
+  border-radius: 20px;
+  font: inherit;
+  background-color: transparent;
+  cursor: pointer;
+
+  // arrow-link::before
+  &::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    left: 12px;
+    top: 12px;
+    border-top: 3px solid $washed-rose;
+    border-right: 3px solid $washed-rose;
+    transform: rotate(45deg);
+  }
+}

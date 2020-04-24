@@ -1,0 +1,59 @@
+//brends-mobile
+.brends-mobile {
+  min-width: 320px;
+  background: $bg-gray;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+//technics-mobile
+.technics-mobile {
+  min-width: 320px;
+  height: auto;
+  background: $bg-gray;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+//brends-mobile swiper-container
+.brends-mobile .swiper-container {
+  height: 220px;
+}
+
+//technics-mobile swiper-container
+.technics-mobile .swiper-container {
+  height: 308px;
+}
+
+//prices-mobile swiper-container
+.prices-mobile .swiper-container {
+  height: 320px;
+}
+
+//swiper-container
+.swiper-container {
+  min-width: 320px;
+  margin: 0 !important;
+  overflow: hidden;
+}
+
+//swiper-slide
+.swiper-slide {
+  // width: 240px !important;
+  margin-top: 16px;
+  margin-right: 16px;
+}
+
+//swiper-pagination-bullet
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  display: inline-block;
+  border-radius: 100%;
+  background: #dddddd !important;
+  opacity: 1 !important;
+}
+
+//swiper-pagination-bullet-active
+.swiper-pagination-bullet-active {
+  background: #b5b6bc !important;
+}

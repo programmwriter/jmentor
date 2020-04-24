@@ -1,0 +1,235 @@
+.prices {
+  margin-bottom: 50px;
+  box-sizing: content-box;
+
+  // .prices__container
+  &__container {
+    margin-bottom: 32px;
+  }
+
+  // .prices__top-row 
+  &__top-row {
+    padding: 0 24px;
+    height: 64px;
+    color: $font_gray;
+
+    @media screen and (max-width: $lg) and (min-width: $sm) {
+      padding: 0 16px;
+    }
+
+    // .prices__top-row .order-btn 
+    & .order-btn {
+      opacity: 0;
+    }
+  }
+
+  // .prices__items
+  &__items {
+    list-style: none;
+    margin: 0;
+    background: white;
+    border-radius: 6px; 
+    margin-bottom: 20px;
+    padding: 0 24px;
+
+    @media screen and (max-width: $lg) and (min-width: $sm) {
+      padding: 0 16px;
+    }
+  }
+  // .prices__item
+  &__item {
+    height: 64px;
+    border-bottom: 1px solid $brd-btm;
+
+    // .prices__item:last-child 
+    &:last-child {
+      border-bottom: 0;
+    }
+    
+    // .prices__item--title-row 
+    &--title-row {
+      background: $bg-gray;
+      color: $font_gray;
+      margin: 0 -24px;
+      padding: 0 23px;
+
+      @media screen and (max-width: $lg) and (min-width: $sm) {
+        margin: 0 -16px;
+        padding: 0 16px;
+      }
+    }
+
+    // .prices__item--title-row .order-btn
+    &--title-row .order-btn {
+      opacity: 0;
+    }
+  }
+}
+
+//.service
+.service {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+  font-weight: 500;
+
+  // .service__title
+  &__title {
+    min-width: 390px;    
+  }
+
+  // .service__cost
+  &__cost {
+    min-width: 85px;
+  }
+
+  // .service__time
+  &__time {
+    min-width: 90px;
+  }
+}
+
+//.order-btn
+.order-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  box-sizing: border-box;
+  color: #fff;
+  width: 120px;
+  height: 32px;
+  background: $washed-rose;
+  border-radius: 16px;
+  text-decoration: none !important;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: -0.15px;
+  font-weight: bold;
+  
+  //.order-btn:hover
+  &:hover {
+    filter: brightness(0.8);
+  }
+
+  //.order-btn::after
+  &::after {
+    content: "";
+    position: absolute;
+    top: 13px;
+    right: 16px;
+    height: 8px;
+    width: 8px;
+    box-sizing: border-box;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    transform: rotate(45deg);
+  }
+}
+
+//.price-slide
+.price-slide {
+  position: relative;
+  height: 200px;
+  width: 260px;
+  padding: 16px;
+  background: white;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+
+  // .price-slide__title
+  &__title {
+    color: $font_gray;
+    margin-bottom: 4px;
+    line-height: 16px;
+  }
+
+  // .price-slide__item
+  &__item {
+    color: $font-text;
+    margin-bottom: 16px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+  }
+
+  // .price-slide__btn
+  &__btn {
+    position: absolute;
+    right: 5px;
+    bottom: 16px;
+  }
+}
+
+//offer
+.offer {
+  min-width: 288px;
+
+  //offer__text
+  &__text {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    max-width: 420px;
+    min-width: 288px;
+    color: $font-text;
+    margin-bottom: 16px;
+  }
+
+  //offer__link-box
+  &__link-box {
+    min-width: 192;
+    margin-right: 70px;
+  }
+
+  //offer__link
+  &__link {
+    min-width: 192px;
+    position: relative;
+    color: $font-text;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    text-decoration: none;
+
+    //offer__link:hover
+    &:hover{
+      opacity: 0.7;
+      text-decoration: underline;
+    }
+    //offer__link:hover ~ .offer__arrow
+    &:hover ~ .offer__arrow{
+      opacity: 0.7;
+    }
+  }
+
+  //offer__arrow
+  &__arrow {
+    display: inline-block;
+    border: solid $washed-rose;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    cursor: pointer;
+
+    //offer__arrow:hover
+    &:hover{
+      opacity: 0.7;
+    }
+
+    //offer__link:hover
+    &:hover + .offer__link{
+      opacity: 0.7;
+      text-decoration: underline;
+    }
+    
+  }
+}

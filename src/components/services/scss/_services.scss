@@ -1,0 +1,32 @@
+// brend-slide
+.brend-slide {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  width: 240px;
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding-left: 16px;
+
+  @media screen and (max-width: $lg) and (min-width: $sm) {
+    width: 224px;
+  }
+
+  // brend-slide:hover brend-slide__img-link, brend-slide:hover brend-slide__btn-box
+  &:hover &__img-link,
+  &:hover &__btn-box {
+    opacity: 0.5;
+  }
+
+  // brend-slide__item-box
+  &__btn-box {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    margin-right: 16px;
+  }
+
+  
+}
