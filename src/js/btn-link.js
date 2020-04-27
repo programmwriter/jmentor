@@ -1,5 +1,3 @@
-// import  {toggleClass} from '../js/functions.js';
-debugger;
 import { toggleClass } from "../js/functions";
 const btnLinks = document.querySelectorAll(".btn-link");
 const cont = document.querySelector(".container__side");
@@ -8,12 +6,6 @@ const containerMain = document.querySelector(".container__main");
 const containerSide = document.querySelector(".container__side");
 const modalCall = document.querySelector(".call");
 const modalFeedback = document.querySelector(".feedback");
-
-cont.addEventListener("click", () => {
-  toggleClass(sideMenu, "side-menu--open");
-  toggleClass(sideMenu, "side-menu--hidden");
-  toggleClass(cont, "container__side--open");
-});
 
 btnLinks.forEach((el) => {
   el.addEventListener("click", (evt) => {
@@ -51,4 +43,12 @@ btnLinks.forEach((el) => {
       toggleClass(containerSide, "container__side--blur");
     }
   });
+});
+
+cont.addEventListener("click", (e) => {  
+  if (e.target === cont) {
+    toggleClass(sideMenu, "side-menu--open");
+    toggleClass(sideMenu, "side-menu--hidden");
+    toggleClass(cont, "container__side--open");
+  }
 });
