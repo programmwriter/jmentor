@@ -15,9 +15,6 @@
   }
    //side-menu--open
    &--open {
-    //  position: relative;
-    filter: none;
-    opacity: 1;
     z-index: 1000;
     @media screen and (max-width: $lg) and (min-width: $sm) {      
       transform: translateX(0);

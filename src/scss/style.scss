@@ -57,33 +57,43 @@ body {
     @media screen and (max-width: $lg) and (min-width: $sm) {
       min-height: 100%;
     }
-
-    //container__side--blur
-    // &--blur {
-    //   // filter: blur(5px);
-    //   // opacity: 0.3;
-      
-    // }
-     //container__side--open
-    &--open{
+   
+    //container__side--open
+    &--open {
       position: fixed;
       width: 100%;
       height: 100%;
       overflow: auto;
-      background:rgba(255,255,255,0.7);
+      background: rgba(255, 255, 255, 0.7);
     }
   }
 
   //container__main
   &__main {
     max-width: $lg;
-
-    //container__main--blur
-    &--blur {
-      filter: blur(5px);
-      opacity: 0.9;
-    }
   }
+
+  &__modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+  &__modal--visible {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(255, 255, 255, 0.7);
+    // display: block;
+  }
+  //container__main-side--overflow
+  &__main-side--overflow{
+    overflow: hidden;
+    position: fixed;
+  }
+  
 }
 
 //upper-menu
