@@ -38,26 +38,35 @@ body {
   min-width: 320px;
   max-width: $screen-xl;
   background: $bg-gray;
+  overflow: hidden;
 
   @media screen and (min-width: $lg) {
     margin: 0 auto;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
+    height: auto;
   }
 
+  //container__wrapper
+  &__wrapper {
+    @media screen and (min-width: $lg) {
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+  }
   //container__side
   &__side {
     position: relative;
     z-index: 10;
-    @media screen and (min-width: $lg) {
-      min-height: 100%;
-    }
 
-    @media screen and (max-width: $lg) and (min-width: $sm) {
-      min-height: 100%;
-    }
-   
+      @media screen and (min-width: $lg) {
+        min-height: 100%;
+      }
+
+      @media screen and (max-width: $lg) and (min-width: $sm) {
+        min-height: 100%;
+      }
+
     //container__side--open
     &--open {
       position: fixed;
@@ -70,29 +79,34 @@ body {
 
   //container__main
   &__main {
-    max-width: $lg;
+    max-width: $lg !important;
   }
 
+  //container__modal
   &__modal {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     height: 0;
     width: 0;
     overflow: hidden;
+    z-index: 9998;
   }
+
+  //container__modal--visible
   &__modal--visible {
+    position: relative;
     width: 100%;
     height: 100%;
     overflow: auto;
     background: rgba(255, 255, 255, 0.7);
     // display: block;
   }
-  //container__main-side--overflow
-  &__main-side--overflow{
+
+  //container__main-side--fixed
+  &__main-side--fixed {
     position: fixed;
   }
-  
 }
 
 //upper-menu

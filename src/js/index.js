@@ -1,59 +1,67 @@
 import "../scss/style.scss";
-import "./btn-link.js";
 import Swiper from "swiper";
-
-
-const brendsItems = document.querySelector(".brends .slide-pocket__items");
-const brends = document.querySelector(".slide-pocket.brends");
-
-const technicsItems = document.querySelector(
-  ".technics .slide-pocket__items"
-);
-const technics = document.querySelector(".slide-pocket.technics");
-const prices = document.querySelector(".prices");
-
-const brendsMobile = document.querySelector(".brends-mobile");
-const technicsMobile = document.querySelector(".technics-mobile");
-const pricesMobile = document.querySelector(".prices-mobile");
-
-const moreBtnOpen = "more-btn--open";
-
-const slidePocketExpanded = "slide-pocket--expanded";
-const slidePocketItemsExpanded = "slide-pocket__items--expanded";
+import { toggleTechnics } from "../components/technics/technics";
+import { toggleServices } from "../components/services/services";
+import * as func from "../js/functions";
 
 const moreBtns = document.querySelectorAll(".more-btn");
+const moreBtnOpen = "more-btn--open";
+
+const btnLinks = document.querySelectorAll(".btn-link");
+const cont = document.querySelector(".container__side");
+const sideMenu = document.querySelector(".side-menu");
+const modalCall = document.querySelector(".call");
+const modalFeedback = document.querySelector(".feedback");
 
 moreBtns.forEach((btn) => {
   btn.addEventListener("click", function (event) {
-    if (event.target.dataset.block === "slide") {
-      if (event.target.classList.contains(moreBtnOpen)) {
-        event.target.classList.remove(moreBtnOpen);
-      } else {
-        event.target.classList.add(moreBtnOpen);
-      }
+    let moreBtn = event.target;
+    if (moreBtn.dataset.block === "slide") {
+      func.toggleClass(moreBtn, moreBtnOpen);
     }
-    if (event.target.dataset.block === "technics") {
-      if (event.target.classList.contains(moreBtnOpen)) {
-        event.target.classList.remove(moreBtnOpen);
-        technics.classList.remove(slidePocketExpanded);
-        technicsItems.classList.remove(slidePocketItemsExpanded);
+    if (moreBtn.dataset.block === "technics") {
+      if (moreBtn.classList.contains(moreBtnOpen)) {
+        func.toggleClass(moreBtn, moreBtnOpen);
+        toggleTechnics();
       } else {
-        event.target.classList.add(moreBtnOpen);
-        technics.classList.add(slidePocketExpanded);
-        technicsItems.classList.add(slidePocketItemsExpanded);
+        moreBtn.classList.add(moreBtnOpen);
+        toggleTechnics();
       }
     }
 
-    if (event.target.dataset.block === "brend") {
-      if (event.target.classList.contains(moreBtnOpen)) {
-        event.target.classList.remove(moreBtnOpen);
-        brends.classList.remove(slidePocketExpanded);
-        brendsItems.classList.remove(slidePocketItemsExpanded);
+    if (moreBtn.dataset.block === "brend") {
+      if (moreBtn.classList.contains(moreBtnOpen)) {
+        func.toggleClass(moreBtn, moreBtnOpen);
+        toggleServices();
       } else {
-        event.target.classList.add(moreBtnOpen);
-        brends.classList.add(slidePocketExpanded);
-        brendsItems.classList.add(slidePocketItemsExpanded);
+        moreBtn.classList.add(moreBtnOpen);
+        toggleServices();
       }
+    }
+  });
+});
+
+btnLinks.forEach((el) => {
+  el.addEventListener("click", (evt) => {
+    let targetData = evt.target.dataset.btnvalue;
+
+    if (targetData === "burger") {
+      func.toggleSideMenu(sideMenu);
+    }
+    if (targetData === "burger-close") {
+      func.toggleSideMenu(sideMenu);
+    }
+    if (targetData === "modall-call-open") {
+      func.toggleModal(modalCall);
+    }
+    if (targetData === "modall-call-close") {
+      func.toggleModal(modalCall);
+    }
+    if (targetData === "modall-feedback-open") {
+      func.toggleModal(modalFeedback);
+    }
+    if (targetData === "modall-feedback-close") {
+      func.toggleModal(modalFeedback);
     }
   });
 });
@@ -86,23 +94,14 @@ let pricesSwiper = new Swiper(".prices-mobile  .swiper-container", {
   },
 });
 
-window.addEventListener("resize", () => {
-  if (window.innerWidth < 768) {
-    brends.classList.add("display-none");
-    technics.classList.add("display-none");
-    prices.classList.add("display-none");
+func.toggleArticle(Window);
 
-    brendsMobile.classList.remove("display-none");
-    technicsMobile.classList.remove("display-none");
-    pricesMobile.classList.remove("display-none");
-  } else {
-    brends.classList.remove("display-none");
-    technics.classList.remove("display-none");
-    prices.classList.remove("display-none");
-
-    brendsMobile.classList.add("display-none");
-    technicsMobile.classList.add("display-none");
-    pricesMobile.classList.add("display-none");
-  }
+window.addEventListener("resize", (evt) => {
+  func.toggleArticle(evt.target);
 });
 
+cont.addEventListener("click", (e) => {
+  if (e.target === cont) {
+    func.toggleSideMenu(sideMenu);
+  }
+});

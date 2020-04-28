@@ -4,18 +4,16 @@
   position: absolute;
   top: 0;
   right: -520px;
-  // right: 0;
   height: 940px;
   width: 440px;
   background: white;
-  // transform: translateX(440px);
+  z-index: 9999;
 
   @media screen and (max-width: $sm) {
     width: 320px;
     height: 676px;
     left: 0;
     z-index: 100;
-    // transform: translateX(320px);
   }
 
   //todo убрать в низ
@@ -26,15 +24,16 @@
     transition-duration: 1s;
     box-shadow: -16px 0px 52px rgba(14, 24, 80, 0.2), -2px 0px 4px rgba(69, 79, 126, 0.02);
   }
+
   //modal--open
   &--open {
     height: 1024px;
-    // transition-delay:0.1s;
     transform: translateX(-520px);
     transition-duration: 1s;
     box-shadow: -16px 0px 52px rgba(14, 24, 80, 0.2), -2px 0px 4px rgba(69, 79, 126, 0.02);
   }
-  // .modal__form
+
+  //modal__form
   &__form {
     display: flex;
     flex-direction: column;
@@ -47,7 +46,8 @@
       width: 288px;
     }
   }
-  // .modal__input
+
+  //modal__input
   &__input {
     display: block;
     background: #ffffff;
@@ -66,11 +66,13 @@
     line-height: 24px;
     letter-spacing: -0.2px;
   }
+
   //modal__textarea
   &__textarea {
     height: 118px;
   }
-  // .modal__submit
+
+  //modal__submit
   &__submit {
     align-self: flex-end;
   }
@@ -117,9 +119,4 @@
     left: 11px;
   }
 }
-// .feedback {
-//   display: flex;
-// }
-// .call {
-//   display: flex;
-// }
+

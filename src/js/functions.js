@@ -1,3 +1,4 @@
+/******************************toggleClass******************************/
 export function toggleClass(element, elClass) {
   if (element.classList.contains(elClass)) {
     element.classList.remove(elClass);
@@ -5,74 +6,99 @@ export function toggleClass(element, elClass) {
     element.classList.add(elClass);
   }
 }
-/******************************fixedWidth******************************/
-export function fixedWidth(element) {
-  !element.getAttribute("style")
-    ? (element.style.maxWidth = `${window.innerWidth}px`)
-    : element.setAttribute("style", "");
-}
 /******************************toggleModal******************************/
 export function toggleModal(element) {
-  const containerMain = document.querySelector(".container__main");
-  const containerSide = document.querySelector(".container__side");
-  const contModal = document.querySelector(".container__modal");
+  let containerMain = document.querySelector(".container__main");
+  let contModal = document.querySelector(".container__modal");
+  let containerWrapper = document.querySelector(".container__wrapper");
+
+  toggleModalJs(element);
+  toggleContModal(contModal, element);
 
   fixedWidth(containerMain);
 
-  toggleClass(element, "modal--hidden");
-  toggleClass(element, "modal--open");
   toggleClass(contModal, "container__modal--visible");
-  toggleClass(containerMain, "container__main-side--overflow");
-  toggleClass(containerSide, "container__main-side--overflow");
+  toggleClass(containerWrapper, "container__main-side--fixed");
 }
 /******************************toggleSideMenu******************************/
 export function toggleSideMenu(element) {
-  const containerMain = document.querySelector(".container__main");
-  const containerSide = document.querySelector(".container__side");
+  let containerMain = document.querySelector(".container__main");
+  let containerSide = document.querySelector(".container__side");
 
   fixedWidth(containerMain);
 
-  if(element.classList.contains("side-menu--open")){
+  if (element.classList.contains("side-menu--open")) {
     element.classList.add("side-menu--hidden");
-  }else if(element.classList.contains("side-menu--hidden")){
+  } else if (element.classList.contains("side-menu--hidden")) {
     element.classList.remove("side-menu--hidden");
   }
 
   toggleClass(element, "side-menu--open");
   toggleClass(containerSide, "container__side--open");
-  toggleClass(containerMain, "container__main-side--overflow");
+  toggleClass(containerMain, "container__main-side--fixed");
 }
-/******************************toggleDisplay******************************/
-export function toggleDisplay(element) {
-  if(element.dataset.status==="close"){
-    element.style.transitionDelay = null;
-    element.style.width='100%';
-    element.style.height='200px';   
-    element.dataset.status="open";
-  }else{
-  	element.dataset.status="close";
-  	element.style.width='0';
-    element.style.height='0';
-    element.style.transitionDelay = "0.5s";
-  }   
+/******************************toggleArticle******************************/
+export function toggleArticle(wind) {
+  let technics = document.querySelector(".slide-pocket.technics");
+  let prices = document.querySelector(".prices");
+  let brends = document.querySelector(".slide-pocket.brends");
+
+  let brendsMobile = document.querySelector(".brends-mobile");
+  let technicsMobile = document.querySelector(".technics-mobile");
+  let pricesMobile = document.querySelector(".prices-mobile");
+
+  if (wind.innerWidth < 768) {
+    brends.classList.add("display-none");
+    technics.classList.add("display-none");
+    prices.classList.add("display-none");
+
+    brendsMobile.classList.remove("display-none");
+    technicsMobile.classList.remove("display-none");
+    pricesMobile.classList.remove("display-none");
+  } else {
+    brends.classList.remove("display-none");
+    technics.classList.remove("display-none");
+    prices.classList.remove("display-none");
+
+    brendsMobile.classList.add("display-none");
+    technicsMobile.classList.add("display-none");
+    pricesMobile.classList.add("display-none");
+  }
+}
+/******************************toggleContModal******************************/
+function toggleContModal(parent, child) {
+  if (parent.dataset.status === "close") {
+    let childHeight = getElCssProperty(child, "height");
+    parent.style.transitionDelay = null;
+    parent.style.height = childHeight;
+    parent.style.width = "100%";
+    parent.dataset.status = "open";
+  } else {
+    parent.style.width = "0";
+    parent.style.height = "0";
+    parent.style.transitionDelay = "0.5s";
+    parent.dataset.status = "close";
+  }
 }
 /******************************toggleModalJs******************************/
-export function toggleModalJs(element){
-  if(element.dataset.status==="close"){
-  let elWidth = getElCssProperty(element,'width');
-  	element.dataset.status="open";
-    
-    console.log(elWidth);
-    element.style.transform = `translateX(-${elWidth})`;
+function toggleModalJs(element) {
+  if (element.dataset.status === "close") {
+    element.dataset.status = "open";
+    element.style.transform = `translateX(-${520}px)`;
     element.style.transitionDuration = "1s";
-  }else{
-    element.dataset.status="close";
-    element.style.transform = "translateX(100px)";
+  } else {
+    element.dataset.status = "close";
+    element.style.transform = `translateX(${520}px)`;
     element.style.transitionDuration = "1s";
   }
-  
+}
+/******************************fixedWidth******************************/
+function fixedWidth(element) {
+  !element.getAttribute("style")
+    ? (element.style.width = `${window.innerWidth}px`)
+    : element.setAttribute("style", "");
 }
 /******************************getElCssProperty******************************/
-export function getElCssProperty(element,prop){
-  return window.getComputedStyle(element,null).getPropertyValue(prop)
+function getElCssProperty(element, prop) {
+  return window.getComputedStyle(element, null).getPropertyValue(prop);
 }
