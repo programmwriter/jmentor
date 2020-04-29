@@ -8,29 +8,17 @@
   width: 440px;
   background: white;
   z-index: 9999;
+  box-shadow: -16px 0px 52px rgba(14, 24, 80, 0.2), -2px 0px 4px rgba(69, 79, 126, 0.02);
 
-  @media screen and (max-width: $sm) {
+  @media screen and (max-width: 767px) {
     width: 320px;
     height: 676px;
-    left: 0;
+    right: -320px;
     z-index: 100;
   }
 
-  //todo убрать в низ
-  //modal--hidden
-  &--hidden {
-    // display: none;
-    transform: translateX(0);
-    transition-duration: 1s;
-    box-shadow: -16px 0px 52px rgba(14, 24, 80, 0.2), -2px 0px 4px rgba(69, 79, 126, 0.02);
-  }
-
-  //modal--open
-  &--open {
-    height: 1024px;
-    transform: translateX(-520px);
-    transition-duration: 1s;
-    box-shadow: -16px 0px 52px rgba(14, 24, 80, 0.2), -2px 0px 4px rgba(69, 79, 126, 0.02);
+  @media screen and (max-width: $sm) {
+    box-shadow: none !important;
   }
 
   //modal__form
@@ -42,7 +30,7 @@
     margin-top: 24px;
     width: 376px;
 
-    @media screen and (max-width: $sm) {
+    @media screen and (max-width: 767px) {
       width: 288px;
     }
   }
@@ -95,7 +83,7 @@
   line-height: 32px;
   letter-spacing: -0.6px;
 
-  @media screen and (max-width: $sm) {
+  @media screen and (max-width: 767px) {
     margin-top: 96px;
   }
 
@@ -114,9 +102,8 @@
   top: 0;
   left: -72px;
 
-  @media screen and (max-width: $sm) {
+  @media screen and (max-width: 767px) {
     top: -75px;
     left: 11px;
   }
 }
-

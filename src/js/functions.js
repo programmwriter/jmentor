@@ -7,12 +7,11 @@ export function toggleClass(element, elClass) {
   }
 }
 /******************************toggleModal******************************/
-export function toggleModal(element) {
+export function toggleModal(element,wind) {
   let containerMain = document.querySelector(".container__main");
   let contModal = document.querySelector(".container__modal");
-  let containerWrapper = document.querySelector(".container__wrapper");
-
-  toggleModalJs(element);
+  let containerWrapper = document.querySelector(".container__wrapper");    
+  indentModal(element,wind);
   toggleContModal(contModal, element);
 
   fixedWidth(containerMain);
@@ -80,15 +79,15 @@ function toggleContModal(parent, child) {
     parent.dataset.status = "close";
   }
 }
-/******************************toggleModalJs******************************/
-function toggleModalJs(element) {
+/******************************indentModal******************************/
+function indentModal(element,wind) {    
   if (element.dataset.status === "close") {
     element.dataset.status = "open";
-    element.style.transform = `translateX(-${520}px)`;
+    element.style.transform = `translateX(-${indentdWidth(wind)}px)`;
     element.style.transitionDuration = "1s";
   } else {
     element.dataset.status = "close";
-    element.style.transform = `translateX(${520}px)`;
+    element.style.transform = `translateX(${indentdWidth(wind)}px)`;
     element.style.transitionDuration = "1s";
   }
 }
@@ -101,4 +100,15 @@ function fixedWidth(element) {
 /******************************getElCssProperty******************************/
 function getElCssProperty(element, prop) {
   return window.getComputedStyle(element, null).getPropertyValue(prop);
+}
+/******************************indentdWidth******************************/
+export function indentdWidth(wind) {
+  if (wind.innerWidth < 768) {
+    //todo удалить
+    console.log(`${wind.innerWidth}  320`);
+    return 320;
+  } else {
+    console.log(`${wind.innerWidth}  520`);
+    return 520;
+  }
 }

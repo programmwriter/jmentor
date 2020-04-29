@@ -13,6 +13,8 @@ const sideMenu = document.querySelector(".side-menu");
 const modalCall = document.querySelector(".call");
 const modalFeedback = document.querySelector(".feedback");
 
+
+
 moreBtns.forEach((btn) => {
   btn.addEventListener("click", function (event) {
     let moreBtn = event.target;
@@ -52,16 +54,16 @@ btnLinks.forEach((el) => {
       func.toggleSideMenu(sideMenu);
     }
     if (targetData === "modall-call-open") {
-      func.toggleModal(modalCall);
+      func.toggleModal(modalCall,window);
     }
     if (targetData === "modall-call-close") {
-      func.toggleModal(modalCall);
+      func.toggleModal(modalCall,window);
     }
     if (targetData === "modall-feedback-open") {
-      func.toggleModal(modalFeedback);
+      func.toggleModal(modalFeedback,window);
     }
     if (targetData === "modall-feedback-close") {
-      func.toggleModal(modalFeedback);
+      func.toggleModal(modalFeedback,window);
     }
   });
 });
@@ -94,7 +96,7 @@ let pricesSwiper = new Swiper(".prices-mobile  .swiper-container", {
   },
 });
 
-func.toggleArticle(Window);
+func.toggleArticle(window);
 
 window.addEventListener("resize", (evt) => {
   func.toggleArticle(evt.target);
