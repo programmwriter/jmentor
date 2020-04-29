@@ -2,6 +2,7 @@ import "../scss/style.scss";
 import Swiper from "swiper";
 import { toggleTechnics } from "../components/technics/technics";
 import { toggleServices } from "../components/services/services";
+import { toggleSlideMenu } from "../components/slide-menu/slide-menu";
 import * as func from "../js/functions";
 
 const moreBtns = document.querySelectorAll(".more-btn");
@@ -13,13 +14,17 @@ const sideMenu = document.querySelector(".side-menu");
 const modalCall = document.querySelector(".call");
 const modalFeedback = document.querySelector(".feedback");
 
-
-
 moreBtns.forEach((btn) => {
   btn.addEventListener("click", function (event) {
     let moreBtn = event.target;
     if (moreBtn.dataset.block === "slide") {
-      func.toggleClass(moreBtn, moreBtnOpen);
+      if (moreBtn.classList.contains(moreBtnOpen)) {
+        func.toggleClass(moreBtn, moreBtnOpen);
+        toggleSlideMenu();
+      } else {
+        moreBtn.classList.add(moreBtnOpen);
+        toggleSlideMenu();
+      }
     }
     if (moreBtn.dataset.block === "technics") {
       if (moreBtn.classList.contains(moreBtnOpen)) {
@@ -54,16 +59,16 @@ btnLinks.forEach((el) => {
       func.toggleSideMenu(sideMenu);
     }
     if (targetData === "modall-call-open") {
-      func.toggleModal(modalCall,window);
+      func.toggleModal(modalCall, window);
     }
     if (targetData === "modall-call-close") {
-      func.toggleModal(modalCall,window);
+      func.toggleModal(modalCall, window);
     }
     if (targetData === "modall-feedback-open") {
-      func.toggleModal(modalFeedback,window);
+      func.toggleModal(modalFeedback, window);
     }
     if (targetData === "modall-feedback-close") {
-      func.toggleModal(modalFeedback,window);
+      func.toggleModal(modalFeedback, window);
     }
   });
 });

@@ -1,0 +1,146 @@
+//slide-menu
+.slide-menu {
+  // display: flex;
+  // justify-content: flex-start;
+  // flex-wrap: wrap;
+  // overflow: hidden;
+  margin-bottom: 16px;
+
+  //slide-menu__items
+  &__items {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: np-wrap;
+    overflow-x: hidden;
+    margin: 0 0 10px 0;
+    padding: 0 15px;
+
+    @media screen and (max-width: $lg) and (min-width: $small) {
+      overflow-x: scroll;
+      scrollbar-width: none;
+      margin-bottom: 24px;
+    }
+    @media screen and (min-width: $lg) {
+      max-width: 1120px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+
+  //slide-menu__item
+  &__item {
+    flex-shrink: 0;
+    margin-right: 5px;
+    height: 40px;
+    padding: 8px 15px;
+    list-style: none;
+    display: inline-block;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+
+    //slide-menu__item:hover
+    &:hover {
+      background: white;
+      border-radius: 5px;
+      border: 2px solid $turquoise;
+      box-sizing: border-box;
+    }
+    a:visited {
+      border-radius: 5px;
+      border: 2px solid transparent;
+      box-sizing: border-box;
+    }
+  }
+
+  //slide-menu__anchor
+  &__anchor {
+    text-decoration: none !important ;
+    font-weight: 500;
+    color: $font_gray;
+  }
+
+  //slide-menu__anchor:hover
+  &__anchor:hover {
+    text-decoration: underline !important;
+    color: darken($font_gray, 20%);
+  }
+
+  // .slide-menu__content
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  // .slide-menu__description
+  &__description {
+    padding: 0 15px;
+    width: auto;
+    height: auto;
+    margin-bottom: 25px;
+  }
+
+  //slide-menu__text
+  &__text {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    color: $font-text;
+    margin: 0;
+    overflow: hidden;
+    z-index: 9;
+
+    //<320
+    @media screen and (max-width: $small) {
+      height: 90px;
+      width: 288px;
+    }
+    //<768
+    @media screen and (min-width: 321px) and (max-width: 1119px) {
+      height: 160px;
+      width: 312px;
+      margin-left: 10px;
+    }
+    //768> & <1120
+    @media screen and (min-width: $lg) {
+      height: 160px;
+      max-width: 490px;
+      margin-left: 19px;
+    }
+
+    //slide-menu__text--expanded
+    &--expanded {
+      height: auto;
+    }
+  }
+
+  //slide-menu__img
+  &__img {
+    box-sizing: border-box;
+    border-radius: 2px;
+
+    //<320
+    @media screen and (max-width: $small) {
+      height: 175px;
+      width: 320px;
+    }
+    //<768
+    @media screen and (min-width: 321px) and (max-width: 1119px) {
+      margin-left: 48px;
+      height: 200px;
+      width: 360px;
+    }
+    //768 > & < 1120
+    @media screen and (min-width: $lg) {
+      min-width: 530px;
+      height: 292px;
+      margin-left: 36px;
+    }
+  }
+}
