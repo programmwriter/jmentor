@@ -2,23 +2,52 @@
   display: flex;
   flex-direction: column;
   position: absolute;
+  visibility: visible;
   top: 0;
-  right: -520px;
-  height: 940px;
+  height: 0;
+  // height: 100vh;
   width: 440px;
   background: white;
   z-index: 9999;
-  box-shadow: -16px 0px 52px rgba(14, 24, 80, 0.2), -2px 0px 4px rgba(69, 79, 126, 0.02);
+  // overflow: scroll;
 
   @media screen and (max-width: 767px) {
     width: 320px;
-    height: 676px;
-    right: -320px;
-    z-index: 100;
+    height: 676px;   
   }
 
   @media screen and (max-width: $sm) {
     box-shadow: none !important;
+  }
+  &--visible {
+    height: 940px;
+    width: 440px;
+    position: sticky;
+    z-index: 9999999;
+    transform: translateX(-440px);
+    transition-delay: 0.5s;
+    transition-property: transform;
+    transition-duration: 1s;
+    box-shadow: -16px 0px 52px rgba(14, 24, 80, 0.2), -2px 0px 4px rgba(69, 79, 126, 0.02);
+    
+    @media screen and (max-width: 767px) { 
+      // width: 320px;
+      height: 676px;     
+    }
+    @media screen and (max-width: 767px) {           
+      transform: translateX(-320px);
+      transition-delay: 0.3s;
+      transition-property: transform;
+      transition-duration: 1s;
+    }
+  }
+  &--hidden {
+    // position: sticky;
+    transform: translateX(75px);
+    // transition-delay: 0.5s;
+    transition-property: transform;
+    transition-duration: 1s;
+    box-shadow: none;
   }
 
   //modal__form

@@ -13,6 +13,7 @@
 @import "../components/slide-menu/slide-menu";
 
 body {
+  position: relative;
   font-family: "TT Lakes";
   color: #1b1c21;
   background: #f2f2f2;
@@ -38,7 +39,7 @@ body {
   width: auto;
   min-width: 320px;
   max-width: $screen-xl;
-  background: $bg-gray;
+  background: $bg-gray;  
   overflow: hidden;
 
   @media screen and (min-width: $lg) {
@@ -86,27 +87,30 @@ body {
   //container__modal
   &__modal {
     position: absolute;
-    top: 0;
-    right: 0;
-    height: 0;
+    top: 0;    
+    bottom: 0;
     width: 0;
-    overflow: hidden;
+    left: 100%;
+    height: 100%;
+    visibility: hidden;
     z-index: 9998;
   }
 
   //container__modal--visible
-  &__modal--visible {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background: rgba(255, 255, 255, 0.7);
-    // display: block;
-  }
+  // &__modal--visible {
+  //   position: relative;
+  //   width: 100%;
+  //   height: 100%;
+  //   overflow: auto;
+  //   background: rgba(255, 255, 255, 0.7);
+  //   // display: block;
+  // }
 
   //container__main-side--fixed
   &__main-side--fixed {
-    position: fixed;
+    // position: fixed;
+    // overflow: hidden;
+    overflow: visible;
   }
 }
 

@@ -7,17 +7,20 @@ export function toggleClass(element, elClass) {
   }
 }
 /******************************toggleModal******************************/
-export function toggleModal(element,wind) {
+export function toggleModal(element, wind) {
   let containerMain = document.querySelector(".container__main");
+  let container = document.querySelector(".container");
+  let body = document.querySelector("body");
   let contModal = document.querySelector(".container__modal");
-  let containerWrapper = document.querySelector(".container__wrapper");    
-  indentModal(element,wind);
-  toggleContModal(contModal, element);
+  let containerWrapper = document.querySelector(".container__wrapper");
+  indentModal(element, wind);
+  // toggleContModal(contModal, element);
 
-  fixedWidth(containerMain);
+  // fixedWidth(containerMain);
 
-  toggleClass(contModal, "container__modal--visible");
-  toggleClass(containerWrapper, "container__main-side--fixed");
+  // toggleClass(contModal, "container__modal--visible");
+  toggleClass(container, "container__main-side--fixed");
+  // toggleClass(containerWrapper, "container__main-side--fixed");
 }
 /******************************toggleSideMenu******************************/
 export function toggleSideMenu(element) {
@@ -80,15 +83,19 @@ function toggleContModal(parent, child) {
   }
 }
 /******************************indentModal******************************/
-function indentModal(element,wind) {    
+function indentModal(element, wind) {
   if (element.dataset.status === "close") {
+    toggleClass(element, "modal--visible");
     element.dataset.status = "open";
-    element.style.transform = `translateX(-${indentdWidth(wind)}px)`;
-    element.style.transitionDuration = "1s";
+    element.classList.remove("modal--hidden");
+    // element.style.transform = `translateX(-${indentdWidth(wind)}px)`;
+    // element.style.transitionDuration = "1s";
   } else {
+    toggleClass(element, "modal--hidden");
     element.dataset.status = "close";
-    element.style.transform = `translateX(${indentdWidth(wind)}px)`;
-    element.style.transitionDuration = "1s";
+    element.classList.remove("modal--visible");
+    // element.style.transform = `translateX(${indentdWidth(wind)}px)`;
+    // element.style.transitionDuration = "1s";
   }
 }
 /******************************fixedWidth******************************/
@@ -104,11 +111,8 @@ function getElCssProperty(element, prop) {
 /******************************indentdWidth******************************/
 export function indentdWidth(wind) {
   if (wind.innerWidth < 768) {
-    //todo удалить
-    console.log(`${wind.innerWidth}  320`);
     return 320;
   } else {
-    console.log(`${wind.innerWidth}  520`);
     return 520;
   }
 }
