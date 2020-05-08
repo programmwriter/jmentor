@@ -2,14 +2,15 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  visibility: visible;
+  opacity: 0;
   top: 0;
-  height: 0;
-  // height: 100vh;
+  right: 0;
+  height: 940px;
   width: 440px;
+  overflow: auto;
+  overflow-x: hidden;
   background: white;
   z-index: 9999;
-  // overflow: scroll;
 
   @media screen and (max-width: 767px) {
     width: 320px;
@@ -19,34 +20,27 @@
   @media screen and (max-width: $sm) {
     box-shadow: none !important;
   }
-  &--visible {
-    height: 940px;
-    width: 440px;
-    position: sticky;
+  &--visible {  
+    opacity: 1;  
+    position: fixed;
     z-index: 9999999;
-    transform: translateX(-440px);
-    transition-delay: 0.5s;
-    transition-property: transform;
-    transition-duration: 1s;
+    transform: translateX(-100%);
+    transition: transform 1s;
     box-shadow: -16px 0px 52px rgba(14, 24, 80, 0.2), -2px 0px 4px rgba(69, 79, 126, 0.02);
     
     @media screen and (max-width: 767px) { 
-      // width: 320px;
       height: 676px;     
     }
     @media screen and (max-width: 767px) {           
       transform: translateX(-320px);
-      transition-delay: 0.3s;
-      transition-property: transform;
-      transition-duration: 1s;
+      transition: transform 1s;
     }
   }
   &--hidden {
-    // position: sticky;
-    transform: translateX(75px);
-    // transition-delay: 0.5s;
-    transition-property: transform;
-    transition-duration: 1s;
+    opacity: 0; 
+    position: fixed;
+    transform: translateX(-100%);
+    transition: transform 1s, opacity 1s 0.3s;
     box-shadow: none;
   }
 

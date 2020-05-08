@@ -18,9 +18,9 @@ export function toggleModal(element, wind) {
 
   // fixedWidth(containerMain);
 
-  // toggleClass(contModal, "container__modal--visible");
+  toggleClass(contModal, "container__modal--visible");
   toggleClass(container, "container__main-side--fixed");
-  // toggleClass(containerWrapper, "container__main-side--fixed");
+  toggleClass(body, "container__main-side--fixed");
 }
 /******************************toggleSideMenu******************************/
 export function toggleSideMenu(element) {

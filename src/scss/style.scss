@@ -89,28 +89,28 @@ body {
     position: absolute;
     top: 0;    
     bottom: 0;
-    width: 0;
+    // width: 0;
     left: 100%;
     height: 100%;
-    visibility: hidden;
     z-index: 9998;
   }
 
   //container__modal--visible
-  // &__modal--visible {
-  //   position: relative;
-  //   width: 100%;
-  //   height: 100%;
-  //   overflow: auto;
-  //   background: rgba(255, 255, 255, 0.7);
-  //   // display: block;
-  // }
+  &__modal--visible {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    background: rgba(255, 255, 255, 0.7);
+  }
 
   //container__main-side--fixed
   &__main-side--fixed {
     // position: fixed;
-    // overflow: hidden;
-    overflow: visible;
+    overflow: hidden;
+    // overflow: visible;
   }
 }
 
